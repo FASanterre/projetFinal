@@ -27,12 +27,19 @@
         <action
             android:id="@+id/action_allRestaurantsFragment_to_connexionFragment22"
             app:destination="@id/connexionFragment2" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteRestaurantsFragment"
         android:name="ca.qc.cgodin.projet_final.FavoriteRestaurantsFragment"
         android:label="fragment_favorite_restaurants"
-        tools:layout="@layout/fragment_favorite_restaurants" />
+        tools:layout="@layout/fragment_favorite_restaurants" >
+        <action
+            android:id="@+id/action_favoriteRestaurantsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </fragment>
     <fragment
         android:id="@+id/connexionFragment2"
         android:name="ca.qc.cgodin.projet_final.ConnexionFragment"
@@ -57,5 +64,14 @@
         android:id="@+id/searchRestaurantFragment"
         android:name="ca.qc.cgodin.projet_final.SearchRestaurantFragment"
         android:label="fragment_search_restaurant"
-        tools:layout="@layout/fragment_search_restaurant" />
+        tools:layout="@layout/fragment_search_restaurant" >
+        <action
+            android:id="@+id/action_searchRestaurantFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="ca.qc.cgodin.projet_final.RestaurantFragment"
+        android:label="fragment_restaurant"
+        tools:layout="@layout/fragment_restaurant" />
 </navigation>

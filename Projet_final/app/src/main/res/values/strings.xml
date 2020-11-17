@@ -6,4 +6,15 @@
     <string name="favorite_icon">Favoris</string>
     <string name="map_icon">Map</string>
     <string name="search_icon">Rechercher</string>
+
+    <string name="lblUsername_fr">Nom d\'utilisateur</string>
+    <string name="lblUsername_en">Username</string>
+    <string name="lblPassword_fr">Mot de passe</string>
+    <string name="lblPassword_en">Mot de passe</string>
+    <string name="lblConnexion_fr">CONNEXION</string>
+    <string name="lblConnexion_en">LOGIN</string>
+    <string name="btnConnexion_fr">Se connecter</string>
+    <string name="btnConnexion_en">Login</string>
+    <string name="btnSenregistrer_fr">S\'enregistrer</string>
+    <string name="btnSenregistrer_en">Register</string>
 </resources>
