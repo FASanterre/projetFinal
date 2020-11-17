@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/allRestaurantsFragment"
+        android:icon="@drawable/ic_baseline_all_24"
+        android:title="@string/all_restaurant_icon" />
+    <item
+        android:id="@+id/favoriteRestaurantsFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/favorite_icon" />
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="@string/map_icon" />
+
+    <item
+        android:id="@+id/searchRestaurantFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search_icon" />
+
+</menu>

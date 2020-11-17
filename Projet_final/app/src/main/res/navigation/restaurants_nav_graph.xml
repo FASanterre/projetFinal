@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurants_nav_graph"
+    app:startDestination="@id/allRestaurantsFragment">
+    <fragment
+        android:id="@+id/allRestaurantsFragment"
+        android:name="ca.qc.cgodin.projet_final.AllRestaurantsFragment"
+        android:label="fragment_all_restaurants"
+        tools:layout="@layout/fragment_all_restaurants" >
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_favoriteRestaurantsFragment"
+            app:destination="@id/favoriteRestaurantsFragment" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_infosRestaurantsFragment"
+            app:destination="@id/infosRestaurantsFragment" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_menuRestaurantFragment"
+            app:destination="@id/menuRestaurantFragment" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_searchRestaurantFragment"
+            app:destination="@id/searchRestaurantFragment" />
+        <action
+            android:id="@+id/action_allRestaurantsFragment_to_connexionFragment22"
+            app:destination="@id/connexionFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteRestaurantsFragment"
+        android:name="ca.qc.cgodin.projet_final.FavoriteRestaurantsFragment"
+        android:label="fragment_favorite_restaurants"
+        tools:layout="@layout/fragment_favorite_restaurants" />
+    <fragment
+        android:id="@+id/connexionFragment2"
+        android:name="ca.qc.cgodin.projet_final.ConnexionFragment"
+        android:label="fragment_connexion"
+        tools:layout="@layout/fragment_connexion" />
+    <fragment
+        android:id="@+id/infosRestaurantsFragment"
+        android:name="ca.qc.cgodin.projet_final.InfosRestaurantsFragment"
+        android:label="fragment_infos_restaurants"
+        tools:layout="@layout/fragment_infos_restaurants" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ca.qc.cgodin.projet_final.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/menuRestaurantFragment"
+        android:name="ca.qc.cgodin.projet_final.MenuRestaurantFragment"
+        android:label="fragment_menu_restaurant"
+        tools:layout="@layout/fragment_menu_restaurant" />
+    <fragment
+        android:id="@+id/searchRestaurantFragment"
+        android:name="ca.qc.cgodin.projet_final.SearchRestaurantFragment"
+        android:label="fragment_search_restaurant"
+        tools:layout="@layout/fragment_search_restaurant" />
+</navigation>
