@@ -10,11 +10,15 @@
     <string name="lblUsername_fr">Nom d\'utilisateur</string>
     <string name="lblUsername_en">Username</string>
     <string name="lblPassword_fr">Mot de passe</string>
-    <string name="lblPassword_en">Mot de passe</string>
+    <string name="lblPassword_en">Password</string>
     <string name="lblConnexion_fr">CONNEXION</string>
     <string name="lblConnexion_en">LOGIN</string>
     <string name="btnConnexion_fr">Se connecter</string>
     <string name="btnConnexion_en">Login</string>
     <string name="btnSenregistrer_fr">S\'enregistrer</string>
     <string name="btnSenregistrer_en">Register</string>
+    <string name="lblSenregistrer_fr">Nouveau compte</string>
+    <string name="lblSenregistrer_en">New account</string>
+    <string name="lblPassword2_fr">Entrez le mot de passe à nouveau</string>
+    <string name="lblPassword2_en">Password (again)</string>
 </resources>

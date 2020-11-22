@@ -5,7 +5,7 @@
     android:id="@+id/layoutEnregistrer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConnexionActivity">
+    tools:context=".EnregistrementActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,20 +14,34 @@
         android:background="#FFFFFF">
 
         <TextView
-            android:id="@+id/btnSenregistrer"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="27dp"
             android:layout_marginEnd="100dp"
-            android:clickable="true"
-            android:text="@string/btnSenregistrer_fr"
+            android:text="@string/lblPassword2_fr"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnConnexion" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPasswordEnregistrer" />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editTextPasswordEnregistrer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/editTextPasswordEnregistrer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -45,21 +59,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="31dp"
+            android:layout_marginTop="21dp"
             android:layout_marginEnd="100dp"
             android:text="@string/lblPassword_fr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextUsernameSenregistrer" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="90dp"
-            android:layout_marginEnd="100dp"
-            android:text="@string/lblConnexion_fr"
+            android:layout_marginEnd="60dp"
+            android:text="@string/lblSenregistrer_fr"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +92,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <EditText
-            android:id="@+id/editTextUsername"
+            android:id="@+id/editTextUsernameSenregistrer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -91,29 +105,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <Button
-            android:id="@+id/btnConnexion"
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="100dp"
-            android:backgroundTint="#4CAF50"
-            android:text="@string/btnConnexion_fr"
+            android:text="@string/btnSenregistrer_fr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPasswordEnregistrer2" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSenregistrer"
-            app:layout_constraintVertical_bias="0.0"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
