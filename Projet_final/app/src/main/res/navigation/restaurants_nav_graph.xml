@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_favoriteRestaurantsFragment_to_restaurantFragment"
             app:destination="@id/restaurantFragment" />
+        <action
+            android:id="@+id/action_favoriteRestaurantsFragment_to_infosRestaurantsFragment"
+            app:destination="@id/infosRestaurantsFragment" />
     </fragment>
     <fragment
         android:id="@+id/connexionFragment2"
@@ -76,6 +79,9 @@
         <action
             android:id="@+id/action_searchRestaurantFragment_to_restaurantFragment"
             app:destination="@id/restaurantFragment" />
+        <action
+            android:id="@+id/action_searchRestaurantFragment_to_infosRestaurantsFragment"
+            app:destination="@id/infosRestaurantsFragment" />
     </fragment>
     <fragment
         android:id="@+id/restaurantFragment"

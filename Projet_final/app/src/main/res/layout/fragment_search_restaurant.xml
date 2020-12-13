@@ -18,7 +18,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recherche"
+            android:text="@string/search_icon"
             android:textAlignment="center"
             android:textColor="#DDDDDD"
             android:textSize="30sp" />

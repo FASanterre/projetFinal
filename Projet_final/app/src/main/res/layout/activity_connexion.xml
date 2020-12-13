@@ -21,7 +21,7 @@
             android:layout_marginTop="113dp"
             android:layout_marginEnd="100dp"
             android:clickable="true"
-            android:text="@string/btnSenregistrer_fr"
+            android:text="@string/btnSenregistrer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button" />
@@ -47,7 +47,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="31dp"
             android:layout_marginEnd="100dp"
-            android:text="@string/lblPassword_fr"
+            android:text="@string/lblPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
@@ -59,7 +59,8 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="90dp"
             android:layout_marginEnd="100dp"
-            android:text="@string/lblConnexion_fr"
+            android:gravity="center"
+            android:text="@string/lblConnexion"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="100dp"
-            android:text="@string/lblUsername_fr"
+            android:text="@string/lblUsername"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -98,7 +99,7 @@
             android:layout_marginTop="19dp"
             android:layout_marginEnd="100dp"
             android:backgroundTint="#4CAF50"
-            android:text="@string/btnConnexion_fr"
+            android:text="@string/btnConnexion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />

@@ -89,7 +89,7 @@ class SearchRestaurantFragment : Fragment() {
                 putSerializable("article", it)
             }
             findNavController().navigate(
-                R.id.action_allRestaurantsFragment_to_infosRestaurantsFragment,
+                R.id.action_searchRestaurantFragment_to_infosRestaurantsFragment,
                 bundle
             )
         }

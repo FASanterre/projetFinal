@@ -30,11 +30,14 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.*
 
 
 class MainActivity : AppCompatActivity(){
 
     companion object {
+        var langue : String = "fr"
+
         var utilConnecte : String = ""
 
         var longitude : Double? = null
@@ -225,6 +228,8 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
         bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
 
+        langue = Locale.getDefault().getLanguage();
+
         if(intent.getStringExtra("username") == null){
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
@@ -234,13 +239,13 @@ class MainActivity : AppCompatActivity(){
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         getLocationPermission()
-        //trouverPosition()
+        trouverPosition()
         Log.i("test", "long : " + longitude.toString() + ", lat : " + latitude.toString())
 
-        //if (latitude == null && longitude == null) {
+        if (latitude == null && longitude == null) {
             latitude = 45.5128929
             longitude = -73.7063616
-        //}
+        }
 
         if (longitude != null && latitude != null) {
             listeRestaurant(5000.toDouble(), false)
@@ -264,7 +269,7 @@ class MainActivity : AppCompatActivity(){
                 latitude = locationGPS.latitude
                 longitude = locationGPS.longitude
             } else {
-                Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getString(R.string.position), Toast.LENGTH_SHORT).show()
             }
         }
 

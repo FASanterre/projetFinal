@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
-                android:text="Critiques"
+                android:text="@string/reviews"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
@@ -123,7 +123,7 @@
             android:id="@+id/LienSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Site web"
+            android:text="@string/website"
             android:textAlignment="center"
             android:textColor="#03A9F4"
             android:textSize="24sp" />
@@ -181,7 +181,7 @@
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ajouter aux favoris" />
+            android:text="@string/ajouterAuxFavoris" />
 
     </LinearLayout>
 

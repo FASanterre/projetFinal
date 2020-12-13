@@ -31,6 +31,4 @@ class ProjetViewModel(application: Application) : AndroidViewModel(application) 
     fun insertRestaurant(restaurant : Restaurant) = viewModelScope.launch(Dispatchers.IO){
         repository.insertRestaurant(restaurant)
     }
-
-
 }

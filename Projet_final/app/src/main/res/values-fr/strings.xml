@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Projet_final</string>
+    <string name="facebook_app_id">672703040113937</string> <string name="fb_login_protocol_scheme">fb672703040113937</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_restaurant_icon">Tous les restaurants</string>
+    <string name="favorite_icon">Favoris</string>
+    <string name="map_icon">Carte</string>
+    <string name="search_icon">Rechercher</string>
+    <string name="ajouterAuxFavoris">Ajouter aux favoris</string>
+    <string name="reviews">Critiques</string>
+
+    <string name="ouvert">Ouvert</string>
+    <string name="ferme">Fermé</string>
+
+    <string name="position">La position n\'a pas été trouvée</string>
+
+    <string name="website">Site web</string>
+
+    <string name="aAjouter">Restaurant ajouté aux favoris!</string>
+    <string name="nonAjouter">Ce restaurant est déjà dans vos favoris</string>
+
+    <string name="lblUsername">Nom d\'utilisateur</string>
+    <string name="lblPassword">Mot de passe</string>
+    <string name="lblConnexion">CONNEXION</string>
+    <string name="btnConnexion">Se connecter</string>
+    <string name="btnSenregistrer">S\'enregistrer</string>
+    <string name="lblNouveauCompte">Nouveau compte</string>
+    <string name="lblPassword2">Entrez le mot de passe à nouveau</string>
+</resources>

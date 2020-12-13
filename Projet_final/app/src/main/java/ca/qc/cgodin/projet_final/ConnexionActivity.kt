@@ -3,8 +3,10 @@ package ca.qc.cgodin.projet_final
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.facebook.*
@@ -47,6 +49,8 @@ class ConnexionActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this);
         //projetViewModel.deleteAll()
         intent1 = Intent(this, MainActivity::class.java)
+
+        recyclerview.isVisible = false;
 
         FacebookSdk.sdkInitialize(applicationContext);
         AppEventsLogger.activateApp(this)
@@ -156,6 +160,8 @@ class ConnexionActivity : AppCompatActivity() {
             signIn()
         }
     }
+
+
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent

@@ -86,9 +86,9 @@ class InfosRestaurantsFragment : Fragment() {
                         if(count == 0){
                             if(resto == null){
                                 projetViewModel.insertRestaurant(newResto)
-                                Toast.makeText(requireActivity(),"Restaurant ajouté aux favoris!", Toast.LENGTH_LONG).show()
+                                Toast.makeText(requireActivity(),resources.getString(R.string.aAjouter), Toast.LENGTH_LONG).show()
                             }else{
-                                Toast.makeText(requireActivity(),"Ce restaurant est déjà dans vos favoris", Toast.LENGTH_LONG).show()
+                                Toast.makeText(requireActivity(),resources.getString(R.string.nonAjouter), Toast.LENGTH_LONG).show()
                             }
                             count++
                         }
@@ -102,10 +102,10 @@ class InfosRestaurantsFragment : Fragment() {
             TotalNote.text = "${resto.totalNote}"
 
             if (resto.openNow == false){
-                Ouvert.text = "Ouvert";
+                Ouvert.text = resources.getString(R.string.ouvert);
                 Ouvert.setTextColor(Color.parseColor("#4CAF50"))
             }else{
-                Ouvert.text = "Fermé";
+                Ouvert.text = resources.getString(R.string.ferme);
                 Ouvert.setTextColor(Color.parseColor("#F44336"))
             }
 
