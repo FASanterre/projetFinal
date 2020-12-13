@@ -1,5 +1,7 @@
 package ca.qc.cgodin.projet_final
 
+import android.app.Application
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
@@ -8,8 +10,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_enregistrement.*
 import kotlinx.android.synthetic.main.fragment_infos_restaurants.*
 import kotlinx.android.synthetic.main.fragment_infos_restaurants.view.*
 
@@ -27,6 +33,13 @@ class InfosRestaurantsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val projetViewModel: ProjetViewModel by lazy {
+        ViewModelProvider(
+            this,
+            ProjetViewModelFactory(requireActivity().application)
+        ).get(ProjetViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +76,25 @@ class InfosRestaurantsFragment : Fragment() {
         val resto : ModelRestaurant? = args?.getSerializable("article") as ModelRestaurant?
 
         if (resto != null) {
+            button4.setOnClickListener {
+                var projetDao : ProjetDao = projetViewModel.projetDao
+                var newResto : Restaurant = Restaurant(0,resto.placeId,resto.name,resto.adresse,resto.note,resto.totalNote, resto.image.toString(), resto.url,resto.numeroTelephone, resto.openNow, resto.latitude, resto.longitude, MainActivity.utilConnecte)
+                var count = 0
+                projetViewModel.projetDao.findFavorite(newResto.name, newResto.user).observe(
+                    viewLifecycleOwner,
+                    Observer<Restaurant> { resto -> // your code here
+                        if(count == 0){
+                            if(resto == null){
+                                projetViewModel.insertRestaurant(newResto)
+                                Toast.makeText(requireActivity(),"Restaurant ajouté aux favoris!", Toast.LENGTH_LONG).show()
+                            }else{
+                                Toast.makeText(requireActivity(),"Ce restaurant est déjà dans vos favoris", Toast.LENGTH_LONG).show()
+                            }
+                            count++
+                        }
+                    })
+
+            }
             ImageResto.setImageBitmap(resto.image)
             NameResto.text = resto.name
             AdresseResto.text = resto.adresse

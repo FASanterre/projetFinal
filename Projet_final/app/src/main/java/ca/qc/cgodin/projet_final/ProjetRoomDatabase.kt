@@ -20,7 +20,7 @@ abstract class ProjetRoomDatabase: RoomDatabase() {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 ProjetRoomDatabase::class.java,
-                "project_database"
+                "project_database1.2"
             ).build()
             return INSTANCE as ProjetRoomDatabase
         }

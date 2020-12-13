@@ -22,4 +22,16 @@ interface ProjetDao {
 
     @Query("SELECT * FROM utilisateur_table WHERE username = :username")
      fun findIfUserExist(username: String): LiveData<Utilisateur>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addResto(restaurant: Restaurant)
+
+    @Query("SELECT * FROM restaurant_table")
+    fun getFavorite(): LiveData<List<Restaurant>>
+
+    @Query("SELECT * FROM restaurant_table WHERE name = :name")
+    fun findFavorite(name:String):  LiveData<Restaurant>
+
+    @Query("SELECT * FROM restaurant_table WHERE name = :name AND username = :username")
+    fun findFavorite(name:String, username:String):  LiveData<Restaurant>
 }

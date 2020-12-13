@@ -69,6 +69,7 @@ class ConnexionActivity : AppCompatActivity() {
                         var intent = Intent(this, MainActivity::class.java).apply {
                             putExtra("username", username)
                         }
+                        MainActivity.utilConnecte = username
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "Connexion échouée", Toast.LENGTH_SHORT).show()
@@ -98,6 +99,7 @@ class ConnexionActivity : AppCompatActivity() {
                                     var intent = Intent(this@ConnexionActivity, MainActivity::class.java).apply {
                                         putExtra("username", id)
                                     }
+                                    MainActivity.utilConnecte = id
                                     startActivity(intent)
                                 }
                                 else if(count == 1){
@@ -106,6 +108,7 @@ class ConnexionActivity : AppCompatActivity() {
                                     var intent = Intent(this@ConnexionActivity, MainActivity::class.java).apply {
                                         putExtra("username", id)
                                     }
+                                    MainActivity.utilConnecte = id
                                     startActivity(intent)
                                     count++;
                                 }

@@ -177,6 +177,12 @@
                 android:text="Item3" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter aux favoris" />
+
     </LinearLayout>
 
 </FrameLayout>

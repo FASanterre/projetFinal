@@ -58,7 +58,11 @@
         android:id="@+id/mapFragment"
         android:name="ca.qc.cgodin.projet_final.MapFragment"
         android:label="fragment_map"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_infosRestaurantsFragment"
+            app:destination="@id/infosRestaurantsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menuRestaurantFragment"
         android:name="ca.qc.cgodin.projet_final.MenuRestaurantFragment"

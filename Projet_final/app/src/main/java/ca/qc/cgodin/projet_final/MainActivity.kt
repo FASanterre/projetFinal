@@ -6,18 +6,23 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.play.core.internal.e
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_map.*
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
@@ -25,10 +30,13 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.math.log
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(){
+
     companion object {
+        var utilConnecte : String = ""
+
         var longitude : Double? = null
         var latitude : Double? = null
 
@@ -39,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         var ready : Boolean = false;
 
-        fun listeRestaurant (distance : Double, recherche : Boolean){
+        fun listeRestaurant(distance: Double, recherche: Boolean){
             ready = false;
 
             val payload = "test payload"
@@ -66,22 +74,28 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call, response: Response) {
                     // Handle this
-                    if(response.isSuccessful){
+                    if (response.isSuccessful) {
                         var json = JSONObject(response.body?.string())
 
                         val results = json.getJSONArray("results")
 
                         val l = results.length() - 1
 
-                        for(i in 0..l) {
+                        for (i in 0..l) {
                             var numeroTelephone: String = "rien"
                             var urlSite: String = "rien"
                             var openNow: Boolean = false
 
                             val rjson = results.getJSONObject(i)
 
-                            var lattitudeResto = rjson.getJSONObject("geometry").getJSONObject("location").getString("lat").toDouble();
-                            var longitudeResto = rjson.getJSONObject("geometry").getJSONObject("location").getString("lng").toDouble();
+                            var lattitudeResto =
+                                rjson.getJSONObject("geometry").getJSONObject("location").getString(
+                                    "lat"
+                                ).toDouble();
+                            var longitudeResto =
+                                rjson.getJSONObject("geometry").getJSONObject("location").getString(
+                                    "lng"
+                                ).toDouble();
 
                             val resultPhotos = rjson.optJSONArray("photos")
 
@@ -112,10 +126,12 @@ class MainActivity : AppCompatActivity() {
                                 val request1 = Request.Builder()
                                     .method("POST", requestBody1)
                                     .url(
-                                        "https://maps.googleapis.com/maps/api/place/details/json?place_id=${results.getJSONObject(
-                                            i
-                                        )
-                                            .getString("place_id")}&fields=website,formatted_phone_number,opening_hours&key=AIzaSyDTvnuL5i9PpEqcJAect0D9ZRkEhNTv3Oo"
+                                        "https://maps.googleapis.com/maps/api/place/details/json?place_id=${
+                                            results.getJSONObject(
+                                                i
+                                            )
+                                                .getString("place_id")
+                                        }&fields=website,formatted_phone_number,opening_hours&key=AIzaSyDTvnuL5i9PpEqcJAect0D9ZRkEhNTv3Oo"
                                     )
                                     .build()
                                 okHttpClient1.newCall(request1).enqueue(object : Callback {
@@ -157,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                                                     temp,
                                                     urlSite,
                                                     numeroTelephone,
-                                                    openNow,
+                                                    !openNow,
                                                     lattitudeResto,
                                                     longitudeResto
                                                 )
@@ -180,7 +196,7 @@ class MainActivity : AppCompatActivity() {
                                                     "nombre resto distance : " + listeRestaurantRechercheDistance.count()
                                                         .toString()
                                                 )
-                                            }catch (e : Exception){
+                                            } catch (e: Exception) {
 
                                             }
 
@@ -188,7 +204,7 @@ class MainActivity : AppCompatActivity() {
                                         }
                                     }
                                 })
-                            }catch (e : Exception){
+                            } catch (e: Exception) {
 
                             }
                         }
@@ -196,6 +212,8 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+
+
     }
 
     var locationManager: LocationManager? = null
@@ -210,6 +228,8 @@ class MainActivity : AppCompatActivity() {
         if(intent.getStringExtra("username") == null){
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
+        }else{
+            utilConnecte = intent.getStringExtra("username") as String
         }
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -301,4 +321,5 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
+
 }
