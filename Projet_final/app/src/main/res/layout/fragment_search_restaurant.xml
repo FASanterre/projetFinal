@@ -2,12 +2,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchRestaurantFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SearchRestaurantFragment"
+    android:tag="test">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/search_icon" />
+        android:background="#404040"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recherche"
+            android:textAlignment="center"
+            android:textColor="#DDDDDD"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="1"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#DDDDDD"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/SliderRecherche"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#ECECEC"
+                android:foregroundTint="#EAEAEA"
+                android:progressBackgroundTint="#FBFBFB"
+                android:progressTint="#4CAF50"
+                android:thumbTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="#DDDDDD"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/IndicateurDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1 km"
+            android:textAlignment="center"
+            android:textColor="#DDDDDD"
+            android:textSize="24sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RvRecherche"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30sp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </LinearLayout>
 
 </FrameLayout>

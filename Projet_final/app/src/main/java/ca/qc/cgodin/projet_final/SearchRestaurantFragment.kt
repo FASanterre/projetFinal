@@ -1,59 +1,97 @@
 package ca.qc.cgodin.projet_final
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.findFragment
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_search_restaurant.*
+import kotlin.math.roundToInt
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchRestaurantFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchRestaurantFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    companion object {
+        fun newInstance() = SearchRestaurantFragment()
     }
+
+    var seek : SeekBar? = null
+
+    private lateinit var searchAdapter: SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_restaurant, container, false)
+
+        val v : View = inflater.inflate(R.layout.fragment_search_restaurant, container, false)
+
+        seek = v.findViewById<SeekBar>(R.id.SliderRecherche)
+
+        val args = arguments
+
+        if (args?.getInt("distance") != null) {
+            seek?.progress = args?.getInt("distance") as Int
+        }
+
+        seek?.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seek: SeekBar,
+                                           progress: Int, fromUser: Boolean) {
+                // write custom code for progress is changed
+                IndicateurDistance.text = "${seek.progress / 10} km"
+            }
+
+            override fun onStartTrackingTouch(seek: SeekBar) {
+                // write custom code for progress is started
+            }
+
+            override fun onStopTrackingTouch(seek: SeekBar) {
+                // write custom code for progress is stopped
+                seek.progress = (seek.progress / 10 * 10.toDouble()).roundToInt()
+
+                var distanceRecherche = seek.progress
+
+                if (seek.progress == 0){
+                    distanceRecherche = 10
+                }
+
+                //searchAdapter.resetRestaurantsList()
+                searchAdapter.setRestaurants(seek.progress)
+
+                IndicateurDistance.text = "${distanceRecherche / 10} km"
+            }
+        })
+
+        return v
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchRestaurantFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchRestaurantFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        searchAdapter = SearchAdapter()
+
+        MainActivity.rechercheAdapter = searchAdapter
+
+        RvRecherche.adapter = searchAdapter
+
+        searchAdapter.setRestaurants(10)
+
+
+        searchAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
             }
+            findNavController().navigate(
+                R.id.action_allRestaurantsFragment_to_infosRestaurantsFragment,
+                bundle
+            )
+        }
     }
 }

@@ -49,7 +49,11 @@
         android:id="@+id/infosRestaurantsFragment"
         android:name="ca.qc.cgodin.projet_final.InfosRestaurantsFragment"
         android:label="fragment_infos_restaurants"
-        tools:layout="@layout/fragment_infos_restaurants" />
+        tools:layout="@layout/fragment_infos_restaurants" >
+        <action
+            android:id="@+id/action_infosRestaurantsFragment_to_webView"
+            app:destination="@id/webView" />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="ca.qc.cgodin.projet_final.MapFragment"
@@ -74,4 +78,9 @@
         android:name="ca.qc.cgodin.projet_final.RestaurantFragment"
         android:label="fragment_restaurant"
         tools:layout="@layout/fragment_restaurant" />
+    <fragment
+        android:id="@+id/webView"
+        android:name="ca.qc.cgodin.projet_final.WebView"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
 </navigation>

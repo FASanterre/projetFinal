@@ -1,10 +1,17 @@
 package ca.qc.cgodin.projet_final
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Html
+import android.text.method.LinkMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_infos_restaurants.*
+import kotlinx.android.synthetic.main.fragment_infos_restaurants.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +41,68 @@ class InfosRestaurantsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        /*
+        val args = arguments
+        val resto : ModelRestaurant? = args?.getSerializable("article") as ModelRestaurant?
+
+        if (resto != null) {
+            ImageResto.setImageBitmap(resto.image)
+            NameResto.text = resto.name
+            AdresseResto.text = resto.name
+        };
+         */
+
         return inflater.inflate(R.layout.fragment_infos_restaurants, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val args = arguments
+        val resto : ModelRestaurant? = args?.getSerializable("article") as ModelRestaurant?
+
+        if (resto != null) {
+            ImageResto.setImageBitmap(resto.image)
+            NameResto.text = resto.name
+            AdresseResto.text = resto.adresse
+            Note.text = "${resto.note}/5"
+            TotalNote.text = "${resto.totalNote}"
+
+            if (resto.openNow == false){
+                Ouvert.text = "Ouvert";
+                Ouvert.setTextColor(Color.parseColor("#4CAF50"))
+            }else{
+                Ouvert.text = "Fermé";
+                Ouvert.setTextColor(Color.parseColor("#F44336"))
+            }
+
+            if (resto.numeroTelephone != "rien"){
+                NumeroTelephone.text = resto.numeroTelephone
+            }
+
+            if (resto.url != "") {
+                LienSite.isClickable = true
+                /*
+                LienSite.movementMethod = LinkMovementMethod.getInstance()
+                val text = "<a href='${resto.url}'> ${resto.url} </a>"
+                LienSite.text = Html.fromHtml(text)
+                 */
+
+                val bundle = Bundle().apply {
+                    putSerializable("article", resto)
+                }
+
+                LienSite.setOnClickListener {
+                    findNavController().navigate(
+                        R.id.action_infosRestaurantsFragment_to_webView,
+                        bundle
+                    )
+                }
+            }else{
+                LienSite.visibility = View.INVISIBLE
+            }
+        };
     }
 
     companion object {
