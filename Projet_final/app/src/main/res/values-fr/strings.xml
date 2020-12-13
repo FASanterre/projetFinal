@@ -20,6 +20,8 @@
     <string name="aAjouter">Restaurant ajouté aux favoris!</string>
     <string name="nonAjouter">Ce restaurant est déjà dans vos favoris</string>
 
+    <string name="maPosition">Moi</string>
+
     <string name="lblUsername">Nom d\'utilisateur</string>
     <string name="lblPassword">Mot de passe</string>
     <string name="lblConnexion">CONNEXION</string>

@@ -56,7 +56,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListe
                 ?.let {
                     MarkerOptions()
                         .position(it)
-                        .title("Current position")
+                        .title(resources.getString(R.string.maPosition))
                 }
         )
         var count = 0
@@ -84,7 +84,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListe
                 this,
                 Observer<Restaurant> { resto -> // your code here
                     if(count == 0){
-                        if(p0.title != "Current position"){
+                        if(p0.title != "Moi" && p0.title != "Me"){
                             var restoModel : ModelRestaurant = ModelRestaurant(resto.placeId,resto.name,resto.adresse,resto.note,resto.totalNote,null,resto.url,resto.numeroTelephone, resto.openNow, resto.latitude, resto.longitude)
                             val bundle = Bundle().apply {
                                 putSerializable("article", restoModel)

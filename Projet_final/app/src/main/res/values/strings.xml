@@ -20,6 +20,8 @@
     <string name="aAjouter">Added to favorites</string>
     <string name="nonAjouter">Already added to favorites</string>
 
+    <string name="maPosition">Me</string>
+
 
     <string name="lblUsername">Username</string>
     <string name="lblPassword">Password</string>
